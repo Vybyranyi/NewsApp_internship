@@ -6,7 +6,6 @@ import checker from 'vite-plugin-checker';
 import viteCompression from 'vite-plugin-compression';
 import Inspect from 'vite-plugin-inspect';
 import { visualizer } from 'rollup-plugin-visualizer';
-// import { minify } from "terser";
 // import virtual from 'vite-plugin-virtual'
 
 // https://vite.dev/config/
@@ -19,11 +18,21 @@ export default defineConfig({
       biome: {
         command: 'check',
       },
+      typescript: true,
     }),
     viteCompression(),
     Inspect(),
     visualizer(),
-    // minify(),
     // virtual(),
   ],
+  build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+
+      },
+    },
+  },
 })
