@@ -1,7 +1,14 @@
-import "./App.css";
+import { Route, Routes } from "react-router";
+import FullNewsPage from "./pages/FullNewsPage";
+import NewsPage from "./pages/NewsPage";
 
 function App() {
-	return <h1>Hello World</h1>;
+	return (
+		<Routes>
+			<Route path="/" element={<NewsPage />} />
+			<Route path="/news/:id" element={<FullNewsPage />} />
+		</Routes>
+	);
 }
 
 export default App;
