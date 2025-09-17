@@ -13,6 +13,11 @@ export default function RegistrationForm() {
 		formState: { errors },
 	} = useForm<RegisterSchemaType>({
 		resolver: zodResolver(registerSchema),
+		defaultValues: {
+			username: "",
+			email: "",
+			password: "",
+		},
 	});
 
 	const onSubmit = (data: RegisterSchemaType) => {
