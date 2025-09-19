@@ -1,9 +1,14 @@
-import "./App.css";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
+import { Route, Routes } from "react-router";
+import FullNewsPage from "./pages/FullNewsPage";
+import NewsPage from "./pages/NewsPage";
 
 function App() {
-	return <RegisterPage />;
+	return (
+		<Routes>
+			<Route path="/" element={<NewsPage />} />
+			<Route path="/news/:id" element={<FullNewsPage />} />
+		</Routes>
+	);
 }
 
 export default App;
